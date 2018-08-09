@@ -6,18 +6,23 @@ from Crypto.Util import number
 
 #obj=ElGamalobj()
 
-#Generate Private Key for Each Player
-def genPrivkey(p, g):
-    sk = number.getRandomRange(2, p-1)
-    return sk
+# #Generate Private Key for Each Player
+# def genPrivkey(p, g):
+#     sk = number.getRandomRange(2, p-1)
+#     return sk
 
-#Generate Public Key for Each Player
-def genPubkey(p, g, s):
-    pubKey = pow(g, s, p)
-    return pubKey
+# #Generate Public Key for Each Player
+# def genPubkey(p, g, s):
+#     pubKey = pow(g, s, p)
+#     return pubKey
 
-#Multiplying All Public Key for Each Player
-def multPubKey(p, *pk):
+# Generate Key for Each Player
+def genKey():
+    key = ElGamal.generate(160, Random.new().read)
+    return key
+
+# Multiplying All Public Key for Each Player
+def multPubKey(p, *key):
     multPubKey = 1
     for x in pk:
         multPubKey = x * multPubKey
