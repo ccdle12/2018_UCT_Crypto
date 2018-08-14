@@ -1,5 +1,5 @@
 import os, hashlib, random, Crypto.PublicKey.RSA
-from rsa_ring_signature import ring
+from rst01 import ring
 
 size = 4
 msg1, msg2 = 'hello', 'world!'
