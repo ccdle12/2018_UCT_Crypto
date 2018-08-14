@@ -1,14 +1,13 @@
-#### 2018 UCT Cryptography Seminar
-
+## 2018 UCT Cryptography Seminar
 
 
 ##### 2018.07.26: ElGamal Encryption and Its Variants
 
 * ElGamal Encryption
 * Distributed ElGamal Encryption
-  * Secret Sharing
+  * reviewing Secret Sharing
 * $(t, n)$- Threshold ElGamal Encryption
-  * $(t, n)$-Threshold Encryption
+  * reviewing $(t, n)$-Threshold Encryption
 
 
 
@@ -24,3 +23,4 @@
 
 * Digital Signature Algorithm (DSA) and ECDSA
 * RSA Blind Signature
+* Dangers of RSA Blind Signature
