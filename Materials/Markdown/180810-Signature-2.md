@@ -4,7 +4,7 @@ Suppose Bob has mad an important discovery.
 
 He wants to record publicly what he has done, but he does not want anyone else to know.
 
-**<u>Goal:</u>** allow Alice to sign a document without knowing its contents.
+**<u>Goal:</u>** allows Alice to sign a document without knowing its contents.
 
 1. Alice
    * execute $\mathsf{RSA.KeyGen}(1^\lambda)$
@@ -33,22 +33,6 @@ He wants to record publicly what he has done, but he does not want anyone else t
 
 
 
-#### Ring Signature
-
-**Def.** Ring signature consists of $(\mathsf{KeyGen, Sign, Verify})$:
-
-* $(vk_1, sk_1), \ldots, (vk_n, sk_n) \gets \mathsf{KeyGen}(1^\lambda, n)$;
-  * Input: a security parameter $\lambda$ and a number of ring users $n$
-  * Output: a verification key $vk_i$ and a signing key $sk_i$ for each ring users
-* $\sigma \gets \mathsf{Sign}(m, vk_1, \ldots, vk_n, sk_i)$ for some $1 \le i \le n$;
-  * Input: a message $m$, all verification keys $vk_1, \ldots, vk_n$ and a signing key $sk_i$ for some user
-  * Output: a signature $\sigma$ of $m$
-* $b \gets \mathsf{Verify}(m, \sigma, vk_1, \ldots, vk_n)$;
-  * Input: a message $m$, a signature $\sigma$ and all verification keys $vk_1, \ldots, vk_n$
-  * Output: a bit $b=1$ if $\sigma$ is a valid siganture of $m$ signed by $sk_i$ for $1 \le i \le n$
-
-
-
 #### Group Signature
 
 **Def.** Group signature consists of $(\mathsf{KeyGen, Sign, Verify, Open})$:
@@ -65,3 +49,6 @@ He wants to record publicly what he has done, but he does not want anyone else t
 * $i \gets \mathsf{Open}(m, \sigma, msk)$;
   * Input: a message $m$, a signature $\sigma$ and a master secret key $msk$
   * Output: a user $i$ or $\perp$
+
+
+
