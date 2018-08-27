@@ -36,18 +36,16 @@
   * [RST01] @ Asiacrypt'01
   * https://people.csail.mit.edu/rivest/pubs/RST01.pdf
   * https://en.wikipedia.org/wiki/Ring_signature
-* Group Signature
-  * https://link.springer.com/chapter/10.1007%2F978-3-540-28628-8_4
-  * https://github.com/Bohdat/Group-Signature-CL-Scheme
-
 
 
 ##### 2018.08.30. Zero-Knowledge Proof (1)
 
+* Zero-Knowledge Protocol in Group Signature
+  * David Chaum's 4th Proposal
+  * https://link.springer.com/chapter/10.1007%2F978-3-540-28628-8_4
+  * https://github.com/Bohdat/Group-Signature-CL-Scheme
 * $\Sigma$-Protocol
 * Example of $\Sigma$-Protocol
   * Proof of Knowledge for Square Root
   * Proof of Knowledge for Discrete Logarithm
   * Proof of Equality of Discrete Lograithm over Different Groups
-* Zero-Knowledge Protocol in Group Signature
-  * David Chaum's 4th Proposal
