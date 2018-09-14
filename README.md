@@ -38,6 +38,7 @@
   * https://en.wikipedia.org/wiki/Ring_signature
 
 
+
 ##### 2018.08.30. Zero-Knowledge Proof (1)
 
 * Zero-Knowledge Protocol in Group Signature
@@ -49,3 +50,12 @@
   * Proof of Knowledge for Square Root
   * Proof of Knowledge for Discrete Logarithm
   * Proof of Equality of Discrete Lograithm over Different Groups
+
+
+
+##### 2018.09.14. Zero-Knowledge Proof (2)
+
+- Commitment Scheme and Pedersen Commitment
+- Example of $\Sigma$-Protocol using commitment
+- zkSNARKs and zkSTARKs
+- Privacy Problem in Bitcoin (BTC)
