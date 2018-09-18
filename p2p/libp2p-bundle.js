@@ -9,7 +9,7 @@ const KadDHT = require('libp2p-kad-dht')
 const mplex = require('libp2p-mplex')
 const secio = require('libp2p-secio')
 const defaultsDeep = require('@nodeutils/defaults-deep')
-const libp2p = require('../../library/js-libp2p')
+const libp2p = require('libp2p')
 
 function mapMuxers (list) {
   return list.map((pref) => {
@@ -55,7 +55,7 @@ class Node extends libp2p {
       config: {
         peerDiscovery: {
           mdns: {
-            interval: 2000,
+            interval: 20000,
             enabled: true
           },
           bootstrap: {
