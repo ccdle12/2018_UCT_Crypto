@@ -46,15 +46,19 @@ PeerId.createFromJSON(require('./peer-id-listener'), (err, idListener) => {
     })
     nodeListener.on('peer:connect', (peerInfo) => {
       console.log(peerInfo.id.toB58String())
-      process.stdin.setEncoding('utf8')
-      process.openStdin().on('data', (chunk) => {
-        var data = chunk.toString()
-        p.push(data)
+      nodeListener.dial(peerInfo, (err,conn) => {
+        console.log('connect to connected peer')
       })
+      // process.stdin.setEncoding('utf8')
+      // process.openStdin().on('data', (chunk) => {
+      //   var data = chunk.toString()
+      //   p.push(data)
+      // })
       })
     })
 
     nodeListener.handle('/chat/1.0.0', (protocol, conn) => {
+      console.log(protocol)
       pull(
         p,
         conn
@@ -68,11 +72,11 @@ PeerId.createFromJSON(require('./peer-id-listener'), (err, idListener) => {
         pull.drain(console.log)
       )
 
-    //   process.stdin.setEncoding('utf8')
-    //   process.openStdin().on('data', (chunk) => {
-    //     var data = chunk.toString()
-    //     p.push(data)
-    //   })
+      process.stdin.setEncoding('utf8')
+      process.openStdin().on('data', (chunk) => {
+        var data = chunk.toString()
+        p.push(data)
+      })
     })
 
     console.log('Listener ready, listening on:')
