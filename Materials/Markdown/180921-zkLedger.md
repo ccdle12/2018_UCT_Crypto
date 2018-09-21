@@ -7,14 +7,17 @@
 ##### 1. Contributions
 
 - the first distributed ledger system to support strong transaction privacy, public verifiability, and practical, userful auditing
+  - Privacy: hides transacting banks and amounts
+  - Public Verification: everyone can verify transactions
+  - Auditing: compute linear functions over transactions
 - do not require trusted setup and only rely on widely-used cryptographic assumptions
 
 
 
 ##### 2. Overview
 
-1. System Participants
-   - Bank
+1. System Model
+   - Banks
      - issue thransactions to transfer digital assets
      - should not be able to hide assets from the Auditor
    - Auditor
@@ -23,6 +26,7 @@
      - should be able to detect an incorrect answer
    - Depositor
      - use and withdraw assets from the system
+     - transactions are public
 2. Building Blocks
    - Pedersen Commitment
    - Public-Key Encryption
@@ -32,7 +36,7 @@
 3. Security Model
    - does not assume that banks will behave honestly
    - assume banks can arbitrarily collude
-   - does ot protect against ann adversary who observes traffic on the network
+   - Banks or the auditor might try to learn transaction contents
 
 
 
@@ -42,7 +46,7 @@
   - each transaction has an entry for each Bank
   - each entry includes a commitment  to a value the amount of the asset that is being debited or credited to the bank
   - the sum of every entry should be zero
-  - uses <u>Pedersen commitments</u> to commit to the value
+  - use <u>Pedersen commitments</u> to commit to the value
 - Audit Token
   - $T_i := (pk_i)^{r_i}$
   - to answer audits without knowing the randomness used in the commitment
@@ -50,9 +54,13 @@
   - a bank does not necessarily know all the commitment randomnesses $r_k$
 - Zero-Knowledge Proofs 
   - the spender can create to prove the invariants are maintained
+  - Proof of Consent
+    - consent to transfer
+    - signature
   - Proof of Asset
     - a new commitment $cm_i'$ is a re-commitment of $cm_i$ or $\prod cm_i$
-    - $cm_i'$ is in range $[0, N)$ where $N$ is the size of message space 
+    - $cm_i'$ is in range $[0, N)$ where $N$ is the size of message space (in zkLedger, $N = 2^{40}$)
+    - range proofs
   - Proof of Balance
     - the committed values satisfy $\sum v_i = 0$
   - Proof of Consistency
