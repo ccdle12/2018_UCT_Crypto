@@ -59,3 +59,20 @@
 - Example of $\Sigma$-Protocol using commitment
 - zkSNARKs and zkSTARKs
 - Privacy Problem in Bitcoin (BTC)
+
+
+
+##### 2018.09.21. zkLedger
+
+- zkLedger: Privacy-Preserving Auditing for Distributed Ledgers
+  - by Neha Narula, Wily Vasquez, Madars Virza
+  - @ USENIX NSDI'18
+  - https://www.usenix.org/conference/nsdi18/presentation/narula
+
+
+
+##### 2018.10.02. Zero-Knowledge Proof (3)
+
+- Quadratic Artimetic Program (QAP) and Quadratic Span Program (QSP)
+- Constructing QAP/QSP
+- Example
