@@ -72,16 +72,14 @@
 ##### 2018.10.02. Zero-Knowledge Proof (3)
 
 - Quadratic Artimetic Program (QAP) and Quadratic Span Program (QSP)
-- Constructing QAP/QSP
-- Example
-- Reference: https://eprint.iacr.org/2012/215.pdf [GGPR13] @ Eurocrypt'13
+- Constructing QAP/QSP and Example
+- https://eprint.iacr.org/2012/215 [GGPR13] @ Eurocrypt'13
 
 
 
 ##### 2018.10.10. Zero-Knowledge Proof (4)
 
-- Pinocchio @ S&P'13
-- https://eprint.iacr.org/2013/279 
+- Pinocchio; https://eprint.iacr.org/2013/279  [PGHR13] @ S&P'13
 - Blind Polynomial Evaluation
 - Constructing SNARKs
 
