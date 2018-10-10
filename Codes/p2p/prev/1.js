@@ -8,12 +8,14 @@ const pull = require('pull-stream')
 const Pushable = require('pull-pushable')
 const p = Pushable()
 
-PeerId.createFromJSON(require('./peer-sumin'), (err, idListener) => {
+let connection = new Array()
+
+PeerId.createFromJSON(require('./peer-id-listener'), (err, idListener) => {
   if (err) {
     throw err
   }
   const peerListener = new PeerInfo(idListener)
-  peerListener.multiaddrs.add('/ip4/0.0.0.0/tcp/19333')
+  peerListener.multiaddrs.add('/ip4/0.0.0.0/tcp/10333')
   const nodeListener = new Node({
     peerInfo: peerListener
   })
@@ -22,7 +24,8 @@ PeerId.createFromJSON(require('./peer-sumin'), (err, idListener) => {
     if (err) {
       throw err
     }
-    nodeListener.once('peer:discovery', (peerInfo) => {
+    nodeListener.on('peer:discovery', (peerInfo) => {
+      console.log(connection.conn)
         nodeListener.dialProtocol(peerInfo,'/chat/1.0.0',(err, conn) => {
             console.log('discovery peer connected')
             pull(
@@ -46,15 +49,19 @@ PeerId.createFromJSON(require('./peer-sumin'), (err, idListener) => {
     })
     nodeListener.on('peer:connect', (peerInfo) => {
       console.log(peerInfo.id.toB58String())
-      process.stdin.setEncoding('utf8')
-      process.openStdin().on('data', (chunk) => {
-        var data = chunk.toString()
-        p.push(data)
+      nodeListener.dial(peerInfo, (err,conn) => {
+        console.log('redial')
       })
+      // process.stdin.setEncoding('utf8')
+      // process.openStdin().on('data', (chunk) => {
+      //   var data = chunk.toString()
+      //   p.push(data)
+      // })
       })
     })
 
     nodeListener.handle('/chat/1.0.0', (protocol, conn) => {
+      connection.push(conn)
       pull(
         p,
         conn
@@ -68,11 +75,11 @@ PeerId.createFromJSON(require('./peer-sumin'), (err, idListener) => {
         pull.drain(console.log)
       )
 
-    //   process.stdin.setEncoding('utf8')
-    //   process.openStdin().on('data', (chunk) => {
-    //     var data = chunk.toString()
-    //     p.push(data)
-    //   })
+      process.stdin.setEncoding('utf8')
+      process.openStdin().on('data', (chunk) => {
+        var data = chunk.toString()
+        p.push(data)
+      })
     })
 
     console.log('Listener ready, listening on:')

@@ -8,12 +8,12 @@ const pull = require('pull-stream')
 const Pushable = require('pull-pushable')
 const p = Pushable()
 
-PeerId.createFromJSON(require('./peer-id-listener'), (err, idListener) => {
+PeerId.createFromJSON(require('./peer-sumin'), (err, idListener) => {
   if (err) {
     throw err
   }
   const peerListener = new PeerInfo(idListener)
-  peerListener.multiaddrs.add('/ip4/0.0.0.0/tcp/10333')
+  peerListener.multiaddrs.add('/ip4/0.0.0.0/tcp/19133')
   const nodeListener = new Node({
     peerInfo: peerListener
   })
@@ -46,9 +46,6 @@ PeerId.createFromJSON(require('./peer-id-listener'), (err, idListener) => {
     })
     nodeListener.on('peer:connect', (peerInfo) => {
       console.log(peerInfo.id.toB58String())
-      nodeListener.dial(peerInfo, (err,conn) => {
-        console.log('connect to connected peer')
-      })
       // process.stdin.setEncoding('utf8')
       // process.openStdin().on('data', (chunk) => {
       //   var data = chunk.toString()
@@ -58,7 +55,6 @@ PeerId.createFromJSON(require('./peer-id-listener'), (err, idListener) => {
     })
 
     nodeListener.handle('/chat/1.0.0', (protocol, conn) => {
-      console.log(protocol)
       pull(
         p,
         conn
@@ -74,7 +70,7 @@ PeerId.createFromJSON(require('./peer-id-listener'), (err, idListener) => {
 
       process.stdin.setEncoding('utf8')
       process.openStdin().on('data', (chunk) => {
-        var data = chunk.toString()
+        var data = 'sumin : ' + chunk.toString()
         p.push(data)
       })
     })
