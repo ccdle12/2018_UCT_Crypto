@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "gyp": "^0.5.0",
     "ipfs": "^0.32.3",
     "ipfs-pubsub-room": "^1.4.0",
     "python-shell": "^1.0.6"
