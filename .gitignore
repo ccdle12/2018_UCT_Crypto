@@ -6,3 +6,9 @@
 
 # VS Code Studio
 .vscode
+
+# Modules
+node_modules/
+
+# JSON file
+package-lock.json
