@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node 1.js"
+    "start": "node 1.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "ipfs": "^0.32.3",
-    "ipfs-pubsub-room": "^1.4.0"
+    "ipfs-pubsub-room": "^1.4.0",
+    "python-shell": "^1.0.6"
   }
 }
