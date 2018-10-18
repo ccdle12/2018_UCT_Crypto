@@ -27,13 +27,13 @@ ipfs.on('ready', () => {
       output:process.stdout
   })
   
-  r1.on("line", (data)=> {
+  r1.on("line", (data) => {
     send(data)
   })
 
   room.on('peer joined', (peer) => {
     console.log('Peer joined the room', peer)
-    room.broadcast('welcome from main')
+    room.sendTo(peer, 'Heewon - Welcome :)')
   })
 
   room.on('peer left', (peer) => {
@@ -49,7 +49,7 @@ ipfs.on('ready', () => {
   room.on('message', (message) => {
     msgsender = message.from
     // console.log(msgsender)
-    ipfs.id((err, identity)=> {
+    ipfs.id((err, identity) => {
         if(err) throw err;
         id = identity.id
         if(msgsender != id)
